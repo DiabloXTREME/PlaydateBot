@@ -39,3 +39,8 @@ try:
         print(f"Failed to download image from URL: {image_url}")
 except requests.exceptions.RequestException as e:
     print(f"Error occurred while downloading image: {e}")
+
+response2 = requests.request("GET",
+                            f"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={steam_token}&steamid={steam_id}")
+
+print(response2.content)
