@@ -1,0 +1,5 @@
+@SteamURL = http://api.steampowered.com
+@SteamToken = {{$shared.secrets.STEAM_TOKEN}}
+@SteamId = {{$shared.secrets.STEAM_ID}}
+GET {{SteamURL}}/ISteamUser/GetPlayerSummaries/v0002/?key={{SteamToken}}&steamids={{SteamId}}
+Accept: application/json
