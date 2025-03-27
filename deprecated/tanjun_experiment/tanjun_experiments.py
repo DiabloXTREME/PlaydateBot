@@ -3,11 +3,9 @@ import tanjun
 import json
 from hikari import *
 
-from tanjun_experiment import plugins
-
 
 def build_bot() -> GatewayBot:
-    with open("../secrets.json", "r") as file:
+    with open("../../secrets.json", "r") as file:
         secrets = json.load(file)
     bot = hikari.GatewayBot(secrets['BOT_TOKEN'])
     make_client(bot)

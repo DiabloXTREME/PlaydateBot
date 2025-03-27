@@ -4,7 +4,7 @@ import hikari
 import tanjun
 import json
 
-with open("../secrets.json", "r") as file:
+with open("../../secrets.json", "r") as file:
     secrets = json.load(file)
 
 bot = hikari.GatewayBot(token=secrets["BOT_TOKEN"])
