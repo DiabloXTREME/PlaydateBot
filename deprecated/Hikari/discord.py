@@ -5,7 +5,7 @@ import pyjokes as pj
 import tanjun
 
 # Secrets Loading
-with open("../secrets.json", "r") as file:
+with open("../../secrets.json", "r") as file:
     secrets = json.load(file)
 
 intents = hikari.Intents.GUILD_MESSAGES | hikari.Intents.MESSAGE_CONTENT
