@@ -4,8 +4,10 @@ import os
 
 
 class Steam:
-    values = {}
-
+  
     def __init__(self, values=None):
+        self.values = {}
         dotenv.load_dotenv()
-        values["API_KEY"] = os.getenv("API_KEY")
+        self.values["BOT_TOKEN"] = os.getenv("BOT_TOKEN")
+
+        print("vals", self.values)
