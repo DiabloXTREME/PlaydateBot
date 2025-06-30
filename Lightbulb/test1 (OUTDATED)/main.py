@@ -8,7 +8,6 @@ from hikari import Intents
 # Misc
 import os
 import dotenv
-from tanjun.annotations import role_field
 
 # Auth
 dotenv.load_dotenv()
@@ -28,7 +27,7 @@ bot = lightbulb.BotApp(
 
 async def ping (ctx: lightbulb.SlashContext) -> None:
     await ctx.respond(f"HOLA!")
-
+z
 #Test command: Pinging game roles
 
 @bot.command
