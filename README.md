@@ -6,3 +6,7 @@ Playdate is a Discord bot that lets users sign in through Steam and register gam
 Anybody can add an API or other functionality to Playdate! Currently in development is an addons system to allow easier development. You can make a repository of your own (and please do share!) or make a pull request into the Addons folder. (**WIP**)
 
 _Made by **Aryaman Maheshwari**_
+
+
+***
+**PS**: I will add all the attributions and copyrights later :D
