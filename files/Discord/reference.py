@@ -39,9 +39,9 @@ class MessageID(lightbulb.MessageCommand, name = "ADMIN TEST: Message ID"):
             await ctx.respond(f"Hey, {ctx.user.display_name}! Unfortunately you can not use this on Playdate messages since that could lead to recursion glitches! Sorry :P", ephemeral = True)
             return
         await ctx.respond(f"{self.target.id} \n {self.target.author} \n {self.target.content}")
-        await self.target.add_reaction("🇨")
-        await self.target.add_reaction("🇬")
-        await self.target.add_reaction("🇫")
+        await self.target.add_reaction(":regional_indicator_c:")
+        await self.target.add_reaction(":regional_indicator_g:")
+        await self.target.add_reaction(":regional_indicator_f:")
 
 @client.register()
 class EmojiChain(lightbulb.MessageCommand, name = "Server Emoji Chain"):
