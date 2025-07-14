@@ -32,3 +32,7 @@ class Steam:
         return requests.request(method="GET",
                                 url=f"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v002/?key={self.values["STEAM_TOKEN"]}&steamids={user_id}").json()
 
+    # TODO: THIS NEEDS TO BE REPLACED WITH OID LIBRARY BUT I CAN'T FIND ANY THAT IS ACTUALLY EVEN THERE ON PYPI
+    # def register_new_user(self, user_disc_id: int, user_steam_int) -> bool:
+
+

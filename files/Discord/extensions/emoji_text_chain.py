@@ -2,9 +2,6 @@
 import asyncio
 import lightbulb
 import uuid
-
-from lightbulb.components import ModalContext
-
 from files.Discord.utils.short_text_input import ShortTextInput
 
 
