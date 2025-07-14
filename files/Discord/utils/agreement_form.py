@@ -18,8 +18,8 @@ class AgreementForm(lightbulb.components.Menu):
     async def agree(self, ctx: lightbulb.components.MenuContext):
         self.yn = True
         await ctx.respond("Agreement Acknowledged", ephemeral = True)
-        self.disable_all_components()
+        ctx.stop_interacting()
     async def disagree(self, ctx: lightbulb.components.MenuContext):
         self.yn = False
         await ctx.respond("Disagreement Acknowledged", ephemeral = True)
-        self.disable_all_components()
+        ctx.stop_interacting()

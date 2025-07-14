@@ -21,7 +21,7 @@ class Steam:
         self.values = {}
         dotenv.load_dotenv()
         self.values["STEAM_TOKEN"] = os.getenv("STEAM_TOKEN")
-        self.values["STEAM_ID"] = os.getenv("STEAM_ID")
+        # self.values["STEAM_ID"] = os.getenv("STEAM_ID")
         logger.info(f"Initializing. Values = [\n{self.values.values()}\n]\n")
 
     def get_user(self, user_id: int) -> json:
@@ -33,6 +33,6 @@ class Steam:
                                 url=f"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v002/?key={self.values["STEAM_TOKEN"]}&steamids={user_id}").json()
 
     # TODO: THIS NEEDS TO BE REPLACED WITH OID LIBRARY BUT I CAN'T FIND ANY THAT IS ACTUALLY EVEN THERE ON PYPI
-    # def register_new_user(self, user_disc_id: int, user_steam_int) -> bool:
+
 
 
