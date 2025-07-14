@@ -29,6 +29,10 @@ class Playdate:
     def run(self):
         self.bot.run()
 
+    class User:
+        def agreed(self):
+            return None
+
 
 
 pd = Playdate(Steam)
