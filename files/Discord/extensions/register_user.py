@@ -1,8 +1,9 @@
 import asyncio
 import lightbulb
 from files.Discord.Playdate import Playdate
+from files.Discord.User import User
 from files.Discord.utils.agreement_form import AgreementForm
-from files.Discord.utils.short_text_input import ShortTextInput
+
 
 loader = lightbulb.Loader()
 
@@ -12,9 +13,10 @@ class RegisterUser(lightbulb.SlashCommand, name="register-user", description="Us
 
      @lightbulb.invoke
      async def invoke(self, ctx: lightbulb.Context, client: lightbulb.Client):
+         user = User()
          if ctx.guild_id is None:
              await ctx.respond("Sorry! The registration command currently can only be used on servers themselves :(")
-         elif Playdate.User.agreed(ctx.user.id):
+         elif user.agreed():
              await ctx.respond("Sorry! You already registered!", ephemeral=True)
          else:
              form = AgreementForm()
@@ -33,6 +35,6 @@ class RegisterUser(lightbulb.SlashCommand, name="register-user", description="Us
              agreement = form.yn
              if agreement is True:
                  await ctx.edit_response(message,"Thank you!", components=[])
-                 Playdate.user.agreed(ctx.user.id)
+                 user.agreed()
              else:
                  await  ctx.edit_response(message, "Understood, have a good day!", components=[])
