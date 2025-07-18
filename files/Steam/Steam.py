@@ -15,24 +15,19 @@ However, most likely, this class will **not** be carried on further into the mai
 1) It is needed to be kept for things such as Addons which may require the aforementioned information like sales
 2) It is needed just for the sake of organization
 """
+dotenv.load_dotenv()
+token = os.getenv("STEAM_TOKEN")
+
+
 class Steam:
-
-    def __init__(self):
-        self.values = {}
-        dotenv.load_dotenv()
-        self.values["STEAM_TOKEN"] = os.getenv("STEAM_TOKEN")
-        # self.values["STEAM_ID"] = os.getenv("STEAM_ID")
-        logger.info(f"Initializing. Values = [\n{self.values.values()}\n]\n")
-
-    def get_user(self, user_id: int) -> json:
+    # TODO: THIS NEEDS TO BE REPLACED WITH OID LIBRARY BUT I CAN'T FIND ANY THAT IS ACTUALLY EVEN THERE ON PYPI
+    @staticmethod
+    def get_user(user_id: int) -> json:
         """
         :param user_id:
         :return:
         """
-        return requests.request(method="GET",
-                                url=f"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v002/?key={self.values["STEAM_TOKEN"]}&steamids={user_id}").json()
-
-    # TODO: THIS NEEDS TO BE REPLACED WITH OID LIBRARY BUT I CAN'T FIND ANY THAT IS ACTUALLY EVEN THERE ON PYPI
-
-
-
+        request =  requests.request(method="GET",
+                                url=f"http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v002/?key={token}&steamids={user_id}").json()
+        print(request)
+        return request

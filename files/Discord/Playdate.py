@@ -3,13 +3,11 @@ import hikari
 import lightbulb
 import dotenv
 import os
-import aiohttp
-from files.Steam import Steam
 
-# ## Dependency Init
-# registry_default = client.di.registry_for(lightbulb.di.Contexts.DEFAULT)
-# # Registers the client session to the dependencies registry
-# registry_default.register_value(typ=lightbulb.Client, value=client)
+from files.Discord.User import UserTools
+from files.Steam import Steam, SteamUser
+
+
 class Playdate:
     def __init__(self, steam: Steam):
         dotenv.load_dotenv()
@@ -19,10 +17,12 @@ class Playdate:
         self.bot.subscribe(hikari.StartingEvent, self.start)
         self.running = False
 
-
     ## Client Init
     async def start(self, event: hikari.StartingEvent):
-        await self.client.load_extensions("extensions.emoji_text_chain", "extensions.register_user")
+        await self.client.load_extensions("extensions.register_user", "extensions.set_steam_id", "extensions.playdate_maker")
+        print("Init")
+        # DO NOT EVER UNCOMMENT UNTIL THE ENTIRE SYSTEM IS FIXED. IN WHICH CASE DELETE THIS ANYWAYS AHHHHHHHH
+        UserTools.load_users()
         await self.client.start()
 
     ## Run
@@ -30,8 +30,6 @@ class Playdate:
         if not self.running:
             self.bot.run()
             self.running = True
-
-
 
 
 pd = Playdate(Steam)

@@ -4,6 +4,8 @@ import lightbulb
 import uuid
 from files.Discord.utils.short_text_input import ShortTextInput
 
+# CURRENTLY DEFUNCT CLASS
+# TODO: FIX THE CLASS, AND THEN REINSTATE IT
 
 # Init
 loader = lightbulb.Loader()
